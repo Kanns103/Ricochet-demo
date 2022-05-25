@@ -92,7 +92,7 @@ html {
     box-shadow: 0 0 30px rgba(45, 50,55, 1.0); /*Create a box shadow which is the dark blur around the edge of the canvas*/
     display: none; /*Hide the id so it can be displayed later in JavaScript*/
     overflow: hidden; /*Hide items that might potentially overflow the canvas dimensions*/
-    max-width: 345px; /*Set the max width of the canvas*/
+    max-width: 325px; /*Set the max width of the canvas*/
     min-width: 345px;/* Set the min width of the canvas to stop it shrinking to unreasonable aspects*/
     padding-right: 15px; /*Set some space on the right of the canvas*/
     padding-bottom: 15px; /*Set some space on the bottom of the canvas*/
