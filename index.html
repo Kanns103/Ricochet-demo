@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"> <!-- Add support for characters and symbols -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<!-- Makes content better for device users -->
+
+	<link rel="stylesheet" type="text/css" href="styles/style.css"> <!-- Links stylesheet -->
+	<title>Interactive Experience</title> <!-- Tab bar title -->
+</head>
+<body>
+	<audio id="buttonspawnaudio" src="audios/pop.wav"></audio> <!-- Audio tag for the popping sound when the balls disappear -->
+
+	<article> <!-- Self contained content semantic element -->
+		<div onclick="showsongs()" id="songs"> <!-- Div containing the songs -->
+			<h2 class="songtitle">Songs</h2> <!-- title for the songs using the h2 tag which is the second largest and second most important title -->
+			<audio id="loadaudio" src="audios/Awakening.mp3"></audio> <!-- The audio tag containing the first audio. This repeats for the next 5 songs -->
+			<button class="songbutton" onclick="playfirstaudio()">Awakening</button> <!-- This button allows the audio to play. It invokes a function -->
+
+			<audio id="loadaudio2" src="audios/sleep.mp3"></audio>
+			<button class="songbutton" onclick="playsecondaudio()">Sleep</button>
+
+			<audio id="loadaudio3" src="audios/forest.mp3"></audio>
+			<button class="songbutton" onclick="playthirdaudio()">Forest</button>
+
+			<audio id="loadaudio4" src="audios/anxious.mp3"></audio>
+			<button class="songbutton" onclick="playfourthaudio()">Anxious</button>
+
+			<audio id="loadaudio5" src="audios/softlonely.mp3"></audio>
+			<button class="songbutton" onclick="playfifthaudio()">Soft lonely</button>
+		</div>
+	</article>
+<!--
+	<aside>
+		<div id="lotofballs">
+			<p id="lotofballsmessage">Seems like you have a lot going on there, just focus on each ball. Would you like to restart?</p>
+			<button onclick="noremove()" class="removebuttons">No</button>
+			<button onclick="yesremove()" class="removebuttons">Yes</button>
+		</div>
+	</aside>
+-->
+
+<header onclick="hidetitle()" id="title"> <!-- This represents the header of the whole document -->
+	<h1 id="h1title">Click the balls!</h1> <!-- This text changes from an array -->
+</header>
+
+<aside>
+	<button onclick="playgame()" id="playgame">Play</button> <!-- Button to start the game -->
+	<p id="instructions">Press Q for instructions</p> <!-- Prompts the user to press q for instructions -->
+</aside>
+
+<aside> <!-- Another aside semantic element to represent content away from main content -->
+	<div id="instructionsdiv"> <!-- Div containing the instructions of the experience -->
+		<h1>Instructions</h1> <!-- title for the instructions. h1 tag represents the biggest and most important title -->
+		<p>Click the balls to make them disappear and more will take their place<br><br>Click the top animation for song choices</p> <!-- This tells the user how to interact with the game -->
+	</div>
+</aside>
+
+<article>
+	<div id="canvas">
+		<button onclick="circle_1()" class="circlestyle" id="circle"></button> <!-- Button for circle 1 -->
+		<button onclick="circle_2()" class="circlestyle2" id="circle2"></button> <!-- Button for circle 2 -->
+	</div>
+</article>
+
+<footer>Ricochet by Jack Hughes © 2022</footer><!--  Footer tag for copyright purposes -->
+
+<script src="scripts/index.js"></script> <!-- Link JavaScript file -->
+
+</body>
+</html>
