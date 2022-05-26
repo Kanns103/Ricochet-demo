@@ -1,17 +1,29 @@
-var buttonspawnaudio = document.getElementById('buttonspawnaudio'), playgametext = document.getElementById('playgame'), canvas = document.getElementById('canvas'), lotsofballs = document.getElementById('lotofballs'), count = 1, count2 = 1, amount = 0, amount2 = 0, countw = 1, count2w = 1, amountw = 0, amount2w = 0;
+var buttonspawnaudio = document.getElementById('buttonspawnaudio'), playgametext = document.getElementById('playgame'), canvas = document.getElementById('canvas'), count = 1, count2 = 1, amount = 0, amount2 = 0, countw = 1, count2w = 1, amountw = 0, amount2w = 0, showsong = document.getElementById('songs'), counter = 0, quotearray = ['What colour is the canvas?', 'How many balls are there?', "Can you keep up?", "Have you got a song playing?", 'Press for instructions'], inst = setInterval(change, 9263);
 const h1title = document.getElementById('h1title'), circle2 = document.getElementById('circle2'), circle = document.getElementById('circle'), array = ["AliceBlue", "AntiqueWhite", "Aqua", "Aquamarine", "Azure", "Beige", "Bisque", "Black", "BlanchedAlmond", "Blue", "BlueViolet", "Brown", "BurlyWood", "CadetBlue", "Chartreuse", "Chocolate", "Coral", "CornflowerBlue", "Cornsilk", "Crimson", "Cyan", "DarkBlue", "DarkCyan", "DarkGoldenRod" ,"DarkGray", "DarkGrey", "DarkGreen", "DarkKhaki", "DarkMagenta", "DarkOliveGreen", "DarkOrange", "DarkOrchid", "DarkRed", "DarkSalmon", "DarkSeaGreen", "DarkSlateBlue", "DarkSlateGray", "DarkSlateGrey", "DarkTurquoise", "DarkViolet", "DeepPink", "DeepSkyBlue", "DimGray", "DimGrey", "DodgerBlue", "FireBrick", "FloralWhite", "ForestGreen", "Fuchsia", "Gainsboro", "GhostWhite", "Gold", "GoldenRod", "Gray", "Grey", "Green", "GreenYellow", "HoneyDew", "HotPink", "IndianRed", "Indigo", "Ivory", "Khaki", "Lavender", "LavenderBlush", "LawnGreen", "LemonChiffon", "LightBlue", "LightCoral", "LightCyan", "LightGoldenRodYellow", "LightGray", "LightGrey", "LightGreen", "LightPink", "LightSalmon", "LightSeaGreen", "LightSkyBlue", "LightSlateGray", "LightSlateGrey", "LightSteelBlue", "LightYellow", "Lime", "LimeGreen", "Linen", "Magenta", "Maroon", "MediumAquaMarine", "MediumBlue", "MediumOrchid", "MediumPurple", "MediumSeaGreen", "MediumSlateBlue", "MediumSpringGreen", "MediumTurquoise", "MediumVioletRed", "MidnightBlue", "MintCream", "MistyRose", "Moccasin", "NavajoWhite", "Navy", "OldLace", "Olive", "OliveDrab", "Orange", "OrangeRed", "Orchid", "PaleGoldenRod", "PaleGreen", "PaleTurquoise", "PaleVioletRed", "PapayaWhip", "PeachPuff", "Peru", "Pink", "Plum", "PowderBlue", "Purple", "RebeccaPurple", "Red", "RosyBrown", "RoyalBlue", "SaddleBrown", "Salmon", "SandyBrown", "SeaGreen", "SeaShell", "Sienna", "Silver", "SkyBlue", "SlateBlue", "SlateGray", "SlateGrey", "Snow", "SpringGreen", "SteelBlue", "Tan", "Teal", "Thistle", "Tomato", "Turquoise", "Violet", "Wheat", "White", "WhiteSmoke", "Yellow", "YellowGreen"], firstaudio = document.getElementById('loadaudio'), firstaudio2 = document.getElementById('loadaudio2'), firstaudio3 = document.getElementById('loadaudio3'), firstaudio4 = document.getElementById('loadaudio4'), firstaudio5 = document.getElementById('loadaudio5'), instructions = document.getElementById('instructions');
-let y = 1, y2 = 1, circleclone = 0, circle2clone = 0;
+let y = 1, y2 = 1, circleclone = 0, circle2clone = 0, amountofballs = 1;
 
-canvas.style.transition = 'all 2s';
+function checkballs() {
+  if(y >= 25 || y2 >= 25) {
+    h1title.style.color = 'LightGreen';
+  }
+  if(y >= 45 || y2 >= 45) {
+    h1title.style.color = 'Orange';
+  }
+  if(y >= 75 || y2 >= 75) {
+    h1title.style.color = 'crimson';
+  }
+}
 
 window.onclick = function(event) {
   let el2 = document.getElementById(event.target.id);
   if(event.target.classList.contains("circlestyle2")) {
     event.target.remove();
+    amountofballs++;
   }
   let el = document.getElementById(event.target.id);
   if(event.target.classList.contains("circlestyle")) {
     event.target.remove();
+    amountofballs++;
   }
 }
 
@@ -28,6 +40,8 @@ function taskw(iw) {
 
 function circle_2() {
   const randomItem = array[Math.floor(Math.random()*array.length)], randomItem2 = array[Math.floor(Math.random()*array.length)], randomItem3 = array[Math.floor(Math.random()*array.length)];
+
+  checkballs();
 
   circle2.style.backgroundColor = randomItem2;
   circle2.style.width = '10%';
@@ -59,6 +73,8 @@ function task(i) {
 
 function circle_1() {
   const randomItem = array[Math.floor(Math.random()*array.length)], randomItem2 = array[Math.floor(Math.random()*array.length)], randomItem3 = array[Math.floor(Math.random()*array.length)];
+
+  checkballs();
 
   circle.style.backgroundColor = randomItem;
   count2 = count++;
@@ -93,7 +109,6 @@ function playgame() {
     spin += 180;
     playgametext.style.transform = "rotatey(" + spin + "deg)";
     playgametext.style.transitionDuration = "1s";
-
   }, 2000);
 
   setTimeout(function() {
@@ -167,8 +182,6 @@ function playfifthaudio() {
   }
 }
 
-var showsong = document.getElementById('songs');
-
 function showsongs() {
   if(showsong.style.height == '287px') {
     showsong.style.animation = 'zoom2 3s ease infinite';
@@ -181,16 +194,6 @@ function showsongs() {
   }
 }
 
-function noremove() {
-  lotsofballs.style.display = 'none';
-}
-
-function yesremove() {
-  const circle = document.getElementById('circle');
-  const circle2 = document.getElementById('circle2');
-}
-
-
 function change() {
   h1title.innerHTML = quotearray[counter];
   counter++;
@@ -199,38 +202,48 @@ function change() {
   }
 }
 
-var counter = 0;
-var quotearray = ['This is pretty cool', 'Can you count those balls?', "Can you keep up?", "Have you got a song playing?", 'Press for instructions'];
-var inst = setInterval(change, 9263);
-
 function hidetitle() {
-  if(title.style.width = '40%') {
-    title.style.width = '1px';
+  if(title.style.width == '1px') {
+    setTimeout(function() {
+      h1title.style.display = 'block';
+    }, 200);
+    title.style.width = '40%';
+    title.style.marginLeft = 'auto';
+    title.style.marginRight = 'auto';
+    title.style.borderRadius = '15px';
+    title.style.opacity = '1';
+    
+
+  }  else {
+    setTimeout(function() {
+      title.style.width = '1px';
+      title.style.borderRadius = '5px';
+      title.style.marginLeft = '-30px';
+      title.style.opacity = '0.6';
+    }, 200);
     h1title.style.display = 'none';
-    title.style.borderRadius = '5px';
-    title.style.marginLeft = '-30px';
-    title.style.opacity = '0.6';
-  } else if(title.style.width = '1px') {
-   title.style.width = '40%';
-   h1title.style.display = 'block';
-   title.style.borderRadius = '15px';
-   title.style.opacity = '1';
- }
+  } 
 }
 
 setTimeout(function() {
   instructions.style.display = 'none';
 }, 10000);
 
+ const insdiv = document.getElementById('instructionsdiv');
+
 document.addEventListener('keydown', function(event) {
-  const insdiv = document.getElementById('instructionsdiv');
   if(event.keyCode == 81) {
     insdiv.style.display = 'block';
   }
-
-  if(insdiv.style.display == 'block') {
-    setTimeout(function() {
-      insdiv.style.display = 'none';
-    }, 3000);
+});
+document.addEventListener('keydown', function(event) {
+  if(event.keyCode == 87) {
+    insdiv.style.display = 'none';
   }
 });
+
+function changetext() {
+ 
+  h1title.innerHTML = amountofballs;
+
+}

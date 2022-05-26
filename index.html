@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="styles/style.css"> <!-- Links stylesheet -->
 	<title>Interactive Experience</title> <!-- Tab bar title -->
 </head>
-<body>
+<body onclick="changetext()">
 	<audio id="buttonspawnaudio" src="audios/pop.wav"></audio> <!-- Audio tag for the popping sound when the balls disappear -->
 
 	<article> <!-- Self contained content semantic element -->
@@ -31,42 +31,40 @@
 			<button class="songbutton" onclick="playfifthaudio()">Soft lonely</button>
 		</div>
 	</article>
-<!--
+
+	<header onclick="hidetitle()" id="title"> <!-- This represents the header of the whole document -->
+		<h1 id="h1title">Click the balls!</h1> <!-- This text changes from an array -->
+	</header>
+
 	<aside>
-		<div id="lotofballs">
-			<p id="lotofballsmessage">Seems like you have a lot going on there, just focus on each ball. Would you like to restart?</p>
-			<button onclick="noremove()" class="removebuttons">No</button>
-			<button onclick="yesremove()" class="removebuttons">Yes</button>
+		<button onclick="playgame()" id="playgame">Play</button> <!-- Button to start the game -->
+		<p id="instructions">Press Q for instructions and W to close</p> <!-- Prompts the user to press q for instructions -->
+	</aside>
+
+	<aside> <!-- Another aside semantic element to represent content away from main content -->
+		<div id="instructionsdiv"> <!-- Div containing the instructions of the experience -->
+			<h1>Instructions</h1> <!-- title for the instructions. h1 tag represents the biggest and most important title -->
+			<p>Click the balls to make them disappear and more will take their place<br><br>Click the top animation for song choices<br><br>Your first time playing is usuall hard and it will seem like you can't click the balls, just keep practicing and you'll find it!<br><br>If you click the section above the canvas you can hide it and the text within that section will change colour based on how many balls there are.<br>
+				<ul>
+					<li>Green - 25 balls or more</li>
+					<li>Orange - 45 balls or more</li>
+					<li>Red - 75 balls or more</li>
+				</ul>
+				Click the text in the sentence printing to change it to how many times you have clicked the balls instead.
+			</p> <!-- This tells the user how to interact with the game -->
 		</div>
 	</aside>
--->
 
-<header onclick="hidetitle()" id="title"> <!-- This represents the header of the whole document -->
-	<h1 id="h1title">Click the balls!</h1> <!-- This text changes from an array -->
-</header>
+	<article>
+		<div id="canvas">
+			<button onclick="circle_1()" class="circlestyle" id="circle"></button> <!-- Button for circle 1 -->
+			<button onclick="circle_2()" class="circlestyle2" id="circle2"></button> <!-- Button for circle 2 -->
+		</div>
+	</article>
 
-<aside>
-	<button onclick="playgame()" id="playgame">Play</button> <!-- Button to start the game -->
-	<p id="instructions">Press Q for instructions</p> <!-- Prompts the user to press q for instructions -->
-</aside>
+	<footer>Ricochet by Jack Hughes © 2022</footer><!--  Footer tag for copyright purposes -->
 
-<aside> <!-- Another aside semantic element to represent content away from main content -->
-	<div id="instructionsdiv"> <!-- Div containing the instructions of the experience -->
-		<h1>Instructions</h1> <!-- title for the instructions. h1 tag represents the biggest and most important title -->
-		<p>Click the balls to make them disappear and more will take their place<br><br>Click the top animation for song choices</p> <!-- This tells the user how to interact with the game -->
-	</div>
-</aside>
-
-<article>
-	<div id="canvas">
-		<button onclick="circle_1()" class="circlestyle" id="circle"></button> <!-- Button for circle 1 -->
-		<button onclick="circle_2()" class="circlestyle2" id="circle2"></button> <!-- Button for circle 2 -->
-	</div>
-</article>
-
-<footer>Ricochet by Jack Hughes © 2022</footer><!--  Footer tag for copyright purposes -->
-
-<script src="scripts/index.js"></script> <!-- Link JavaScript file -->
+	<script src="scripts/index.js"></script> <!-- Link JavaScript file -->
 
 </body>
 </html>

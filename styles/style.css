@@ -87,7 +87,25 @@ html {
   from { top: 0; } to { top: 280px; }
 }
 
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+}
+
 #canvas { /*Background where the balls are held */
+    transition: 2000ms;
     border: none; /* Get rid of border*/
     box-shadow: 0 0 30px rgba(45, 50,55, 1.0); /*Create a box shadow which is the dark blur around the edge of the canvas*/
     display: none; /*Hide the id so it can be displayed later in JavaScript*/
@@ -99,21 +117,22 @@ html {
     background-color: rgb(40, 45, 50); /*Set the background colour of the canvas*/
     transform: scale(1); /*This is a key part in keeping the balls inside the canvas*/
     width: 50%; /*Set the width that will change based on screen size*/
-    height: 320px; /*Set height of canvas*/
+    height: 300px; /*Set height of canvas*/
     margin-top: 60px; /*Set space at the top of the canvas to move it down*/
     margin-left: auto; /*Center canvas left*/
     margin-right: auto; /*Center canvas right*/
+    /*Margin left and right set to auto helps center this element*/
     border-radius: 20px; /*Set border corner radius*/
 }
 
 #canvas .circlestyle {
-    border: 2px solid white;/* Create a border*/
+    border: 2px solid white;/* Creates a border that's 2px thick and the colour is white*/
     box-shadow: 0 0 5px black;
     display: block;
     width: 10%;
     height: 10%;
     border-radius: 50%;
-    background-color: lightskyblue;
+    background-color: lightskyblue; /*Sets background colour as a CSS colour*/
     position: absolute; /*Set the position as absolute*/
 
     /*These below assists the circle in moving around the screen*/
@@ -132,6 +151,8 @@ html {
     border-radius: 50%;
     background-color: lightskyblue;
     position: absolute;
+
+    /*Css animations to assist circle 2 in moving around the screen. This is virtually the same as circle1 animations, but it comes in at a different angle*/
     -webkit-animation: moveX2 3s linear 0s infinite alternate, moveY2 5s linear 0s infinite alternate;
     -moz-animation: moveX2 3s linear 0s infinite alternate, moveY2 5s linear 0s infinite alternate;
     -o-animation: moveX2 3s linear 0s infinite alternate, moveY2 5s linear 0s infinite alternate;
@@ -153,6 +174,8 @@ html {
 }
 
 #title {
+    position: relative;
+    transition: 200ms;
     font-size: 80%; /*Set font size to 80% */
     display: none;
     margin-top: 50px;
@@ -172,7 +195,7 @@ html {
     border-radius: 10px;
     border: none;
     border-color: black;
-    color: lightskyblue;
+    color: lightskyblue; /*Set text colour*/
     display: block;
     margin-top: 200px;
     margin-left: auto;
@@ -184,19 +207,19 @@ html {
     transition: 500ms; /*Set a transition for the speed of the animation(s) */
 }
 
-#playgame:hover {
-    box-shadow: none;
+#playgame:hover { /*When the mouse hovers over the element*/
+    box-shadow: none; /*Get rid of box shadow*/
     box-shadow: 0 0 10px black;
-    cursor: pointer;
+    cursor: pointer; /*Change the cursor to a pointer*/
 }
 
-#playgame:active {
+#playgame:active { Change the 
     border: 2px solid white;
     background-color: black;
     cursor: pointer;
 }
 
-#circle:hover, #circle2:hover, #title:hover { /* Do something on id hover*/
+#circle:hover, #circle2:hover, #title:hover { /* Do something on mouse hover*/
     cursor: pointer; /*Change the cursor to a pointer*/
 }
 
@@ -320,7 +343,6 @@ html {
 }
 
 #instructions {
-    animation: zoom2 3s ease infinite;
     text-align: center;
     margin-top: 20px;
 }
