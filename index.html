@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="styles/style.css"> <!-- Links stylesheet -->
 	<title>Interactive Experience</title> <!-- Tab bar title -->
 </head>
-<body onclick="changetext()">
+<body>
 	<audio id="buttonspawnaudio" src="audios/pop.wav"></audio> <!-- Audio tag for the popping sound when the balls disappear -->
 
 	<article> <!-- Self contained content semantic element -->
@@ -38,19 +38,18 @@
 
 	<aside>
 		<button onclick="playgame()" id="playgame">Play</button> <!-- Button to start the game -->
-		<p id="instructions">Press Q for instructions and W to close</p> <!-- Prompts the user to press q for instructions -->
+		<p id="instructions">Press Q for instructions and W to close<br>For mobile devices press the invisible hot key at the bottom left</p> <!-- Prompts the user to press q for instructions -->
 	</aside>
 
 	<aside> <!-- Another aside semantic element to represent content away from main content -->
 		<div id="instructionsdiv"> <!-- Div containing the instructions of the experience -->
 			<h1>Instructions</h1> <!-- title for the instructions. h1 tag represents the biggest and most important title -->
-			<p>Click the balls to make them disappear and more will take their place<br><br>Click the top animation for song choices<br><br>Your first time playing is usuall hard and it will seem like you can't click the balls, just keep practicing and you'll find it!<br><br>If you click the section above the canvas you can hide it and the text within that section will change colour based on how many balls there are.<br>
+			<p>Click the balls to make them disappear and more will take their place<br><br>Click the top animation for song choices<br><br>Your first time playing is usually hard and it will seem like you can't click the balls, just keep practicing and you'll find it!<br><br>If you click the section above the canvas you can hide it and the text within that section will change colour based on how many balls there are.<br>
 				<ul>
 					<li>Green - 25 balls or more</li>
 					<li>Orange - 45 balls or more</li>
 					<li>Red - 75 balls or more</li>
 				</ul>
-				Click the text in the sentence printing to change it to how many times you have clicked the balls instead.
 			</p> <!-- This tells the user how to interact with the game -->
 		</div>
 	</aside>
@@ -61,6 +60,8 @@
 			<button onclick="circle_2()" class="circlestyle2" id="circle2"></button> <!-- Button for circle 2 -->
 		</div>
 	</article>
+
+	<button onclick="hotcornerclick()" id="hotcorner"></button>
 
 	<footer>Ricochet by Jack Hughes © 2022</footer><!--  Footer tag for copyright purposes -->
 

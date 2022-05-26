@@ -368,3 +368,14 @@ footer {
   width: 100%;
   text-align: center;
 }
+
+#hotcorner {
+    opacity: 1;
+    border: none;
+    background-color: transparent;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 80px;
+    width: 15%;
+}
