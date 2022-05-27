@@ -14,7 +14,7 @@
 
 	<article> <!-- Self contained content semantic element -->
 		<div onclick="showsongs()" id="songs"> <!-- Div containing the songs -->
-			<h2 class="songtitle">Songs</h2> <!-- title for the songs using the h2 tag which is the second largest and second most important title -->
+			<h2 class="songtitle">Songs</h2> <!-- title for the royalty free songs using the h2 tag which is the second largest and second most important title -->
 			<audio id="loadaudio" src="audios/Awakening.mp3"></audio> <!-- The audio tag containing the first audio. This repeats for the next 5 songs -->
 			<button class="songbutton" onclick="playfirstaudio()">Awakening</button> <!-- This button allows the audio to play. It invokes a function -->
 
@@ -32,36 +32,36 @@
 		</div>
 	</article>
 
-	<header onclick="hidetitle()" id="title"> <!-- This represents the header of the whole document -->
-		<h1 id="h1title">Click the balls!</h1> <!-- This text changes from an array -->
+	<header onclick="hidetitle()" id="title"> <!-- Header of the whole document -->
+		<h1 id="h1title">Click the balls!</h1> <!-- This text changes based on how many balls are clicked -->
 	</header>
 
 	<aside>
 		<button onclick="playgame()" id="playgame">Play</button> <!-- Button to start the game -->
-		<p id="instructions">Press Q for instructions and W to close<br>For mobile devices press the invisible hot key at the bottom left</p> <!-- Prompts the user to press q for instructions -->
-	</aside>
+		<p id="instructions">Press Q for instructions and W to close<br>For mobile devices press the invisible hot point at the bottom left<br>Computers can also use the hot point</p> <!-- Prompts the user to press q for instructions and shows information about where the hot point is -->
+	</article>
 
 	<aside> <!-- Another aside semantic element to represent content away from main content -->
 		<div id="instructionsdiv"> <!-- Div containing the instructions of the experience -->
 			<h1>Instructions</h1> <!-- title for the instructions. h1 tag represents the biggest and most important title -->
 			<p>Click the balls to make them disappear and more will take their place<br><br>Click the top animation for song choices<br><br>Your first time playing is usually hard and it will seem like you can't click the balls, just keep practicing and you'll find it!<br><br>If you click the section above the canvas you can hide it and the text within that section will change colour based on how many balls there are.<br>
-				<ul>
-					<li>Green - 25 balls or more</li>
-					<li>Orange - 45 balls or more</li>
-					<li>Red - 75 balls or more</li>
-				</ul>
-			</p> <!-- This tells the user how to interact with the game -->
-		</div>
+			</p>
+			<ul>
+				<li>Green - 25 balls or more</li>
+				<li>Orange - 45 balls or more</li>
+				<li>Red - 75 balls or more</li>
+			</ul>
+		</div> <!-- This tells the user how to interact with the game -->
 	</aside>
 
-	<article>
-		<div id="canvas">
+	<main> <!-- Main content of the document -->
+		<div id="canvas"> <!-- Canvas that holds the balls -->
 			<button onclick="circle_1()" class="circlestyle" id="circle"></button> <!-- Button for circle 1 -->
 			<button onclick="circle_2()" class="circlestyle2" id="circle2"></button> <!-- Button for circle 2 -->
 		</div>
-	</article>
+	</main>
 
-	<button onclick="hotcornerclick()" id="hotcorner"></button>
+	<button onclick="hotcornerclick()" id="hotcorner"></button> <!-- This is hot corner -->
 
 	<footer>Ricochet by Jack Hughes © 2022</footer><!--  Footer tag for copyright purposes -->
 
